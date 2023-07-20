@@ -18,4 +18,5 @@ public class BookLevel : EntityBase, IAggregateRoot
     public double Price { get; set; }
     public double Amount { get; set; }
     public long OrderId { get; set; }
+    public int BookType { get; set; }
 }

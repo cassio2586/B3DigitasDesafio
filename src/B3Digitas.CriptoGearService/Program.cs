@@ -22,6 +22,8 @@ using Bitstamp.Client.Websocket.Responses.Books;
 using Microsoft.AspNetCore.Identity;
 using Serilog;
 using Serilog.Events;
+using BookLevel = B3Digitas.Architecture.Core.OrderBookAggregate.BookLevel;
+using OrderBookSide = Bitstamp.Client.Websocket.Responses.Books.OrderBookSide;
 
 namespace B3Digitas.Architecture.ServiceCrawler
 {
@@ -163,21 +165,21 @@ namespace B3Digitas.Architecture.ServiceCrawler
         private static async Task SendToApi(OrderBookResponse x)
         {
             var orderBook = new CreateOrderBookRequest();
+            orderBook.Symbol = x.Symbol;
             orderBook.Microtimestamp = x.Data.Microtimestamp;
             orderBook.Timestamp = x.Data.Timestamp;
-            orderBook.Asks = new List<BookLevelRequest>();
-            orderBook.Bids = new List<BookLevelRequest>();
+            orderBook.Details = new List<BookLevelRequest>();
             
             foreach (var ask in x.Data.Asks)
             {
-                orderBook.Asks.Add(new BookLevelRequest()
-                    { Amount = ask.Amount, OrderId = ask.OrderId, Price = ask.Price, SideRequest = OrderBookSideRequest.Ask });
+                orderBook.Details.Add(new BookLevelRequest()
+                    { BookType = 1, Amount = ask.Amount, OrderId = ask.OrderId, Price = ask.Price, SideRequest = MapEnumSide(ask.Side)  });
             }
 
             foreach (var bid in x.Data.Bids)
             {
-                orderBook.Asks.Add(new BookLevelRequest()
-                    { Amount = bid.Amount, OrderId = bid.OrderId, Price = bid.Price, SideRequest = OrderBookSideRequest.Bid });
+                orderBook.Details.Add(new BookLevelRequest()
+                    { BookType = 2, Amount = bid.Amount, OrderId = bid.OrderId, Price = bid.Price, SideRequest = MapEnumSide(bid.Side) });
             }
 
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(orderBook);
@@ -190,6 +192,15 @@ namespace B3Digitas.Architecture.ServiceCrawler
 
             string result = response.Content.ReadAsStringAsync().Result;
             Console.WriteLine(result);
+        }
+
+        private static OrderBookSideRequest MapEnumSide(OrderBookSide side)
+        {
+            if (side == OrderBookSide.Ask)
+                return OrderBookSideRequest.Ask;
+            if (side == OrderBookSide.Bid)
+                return OrderBookSideRequest.Bid;
+            return OrderBookSideRequest.Undefined;
         }
 
         private static void InitLogging()

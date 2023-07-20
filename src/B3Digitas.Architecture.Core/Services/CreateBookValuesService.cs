@@ -25,11 +25,8 @@ public class CreateBookValuesService : ICreateBookValuesService
   {
     if (orderBook is null)
       throw new ArgumentNullException();
-    
-    if(orderBook.Asks is null)
-      throw new ArgumentNullException();
-    
-    if(orderBook.Bids is null)
+
+    if(orderBook.Details is null)
       throw new ArgumentNullException();
 
     var orderBookAggregate = orderBook;
