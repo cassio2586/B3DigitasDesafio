@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Runtime.Loader;
 using System.Threading;
 using System.Threading.Tasks;
+using Bitstamp.Client.Websocket;
 using Bitstamp.Client.Websocket.Channels;
 using Bitstamp.Client.Websocket.Client;
 using Bitstamp.Client.Websocket.Communicator;
@@ -12,15 +13,12 @@ using Bitstamp.Client.Websocket.Requests;
 using Serilog;
 using Serilog.Events;
 
-namespace Bitstamp.Client.Websocket.Sample
+namespace B3Digitas.Architecture.ServiceCrawler
 {
     internal class Program
     {
         private static readonly ManualResetEvent ExitEvent = new ManualResetEvent(false);
-
-        private static readonly string API_KEY = "your api key";
-        private static readonly string API_SECRET = "";
-
+        
         private static async Task Main(string[] args)
         {
             InitLogging();
@@ -66,9 +64,10 @@ namespace Bitstamp.Client.Websocket.Sample
             Log.CloseAndFlush();
         }
 
-        private static async Task SendSubscriptionRequests(BitstampWebsocketClient client)
+        private static Task SendSubscriptionRequests(BitstampWebsocketClient client)
         {
             client.Send(new SubscribeRequest("btcusd", Channel.OrderBook));
+            return Task.CompletedTask;
             //client.Send(new SubscribeRequest("btceur", Channel.OrderBook));
 
             //client.Send(new SubscribeRequest("btcusd", Channel.OrderBookDetail));

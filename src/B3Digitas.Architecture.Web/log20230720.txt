@@ -56,3 +56,46 @@ RETURNING "Id";
 2023-07-20 00:25:57.595 -03:00 [INF] Executed endpoint 'HTTP: GET /CashFlowReportDay'
 2023-07-20 00:25:57.595 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/CashFlowReportDay?Day=2023-07-20T03%3A25%3A12.746Z - - - 200 - application/json 2.3593ms
 2023-07-20 00:28:19.575 -03:00 [INF] Application is shutting down...
+2023-07-20 00:35:48.264 -03:00 [INF] Registered 2 endpoints in 257 milliseconds.
+2023-07-20 00:35:48.511 -03:00 [INF] User profile is available. Using '/home/linuxlite/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-20 00:35:49.438 -03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-07-20 00:35:49.568 -03:00 [INF] Now listening on: http://localhost:57679
+2023-07-20 00:35:49.569 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-20 00:35:49.569 -03:00 [INF] Hosting environment: Development
+2023-07-20 00:35:49.570 -03:00 [INF] Content root path: /home/linuxlite/RiderProjects/B3DigitasDesafio/src/B3Digitas.Architecture.Web
+2023-07-20 00:35:50.958 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-07-20 00:35:51.101 -03:00 [WRN] Failed to determine the https port for redirect.
+2023-07-20 00:35:51.158 -03:00 [INF] Executing endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-20 00:35:51.170 -03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CashFlow.Architecture.Web.Controllers.HomeController (B3Digitas.Architecture.Web).
+2023-07-20 00:35:51.184 -03:00 [INF] Executing ViewResult, running view Index.
+2023-07-20 00:35:51.323 -03:00 [INF] Executed ViewResult - view Index executed in 141.3903ms.
+2023-07-20 00:35:51.325 -03:00 [INF] Executed action CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web) in 153.8177ms
+2023-07-20 00:35:51.325 -03:00 [INF] Executed endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-20 00:35:51.333 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 200 - text/html;+charset=utf-8 378.2715ms
+2023-07-20 00:35:51.356 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/Clean.Architecture.Web.styles.css - -
+2023-07-20 00:35:51.363 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/Clean.Architecture.Web.styles.css - - - 404 0 - 6.6341ms
+2023-07-20 00:35:52.691 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-07-20 00:35:52.826 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 135.5155ms
+2023-07-20 00:35:53.071 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-07-20 00:35:53.282 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 210.5748ms
+2023-07-20 00:36:04.822 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/CashFlowReportDay?Day=2023-07-20T03%3A35%3A54.539Z - -
+2023-07-20 00:36:04.823 -03:00 [INF] Executing endpoint 'HTTP: GET /CashFlowReportDay'
+2023-07-20 00:36:04.888 -03:00 [INF] Report generated to date 07/20/2023 00:35:54
+2023-07-20 00:36:04.929 -03:00 [INF] Executed endpoint 'HTTP: GET /CashFlowReportDay'
+2023-07-20 00:36:04.932 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/CashFlowReportDay?Day=2023-07-20T03%3A35%3A54.539Z - - - 200 - application/json 109.4218ms
+2023-07-20 00:36:20.072 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/Cash application/json 131
+2023-07-20 00:36:20.073 -03:00 [INF] Executing endpoint 'HTTP: POST /Cash'
+2023-07-20 00:36:20.490 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Decimal), @p1='?' (DbType = DateTime), @p2='?' (Size = 6), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "CashFlow" ("Amount", "DateTimeTransaction", "Description", "TransactionType")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2023-07-20 00:36:20.558 -03:00 [INF] Transaction success saved.
+2023-07-20 00:36:20.559 -03:00 [INF] Executed endpoint 'HTTP: POST /Cash'
+2023-07-20 00:36:20.564 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/Cash application/json 131 - 204 - - 491.2120ms
+2023-07-20 00:36:23.297 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/CashFlowReportDay?Day=2023-07-20T03%3A35%3A54.539Z - -
+2023-07-20 00:36:23.297 -03:00 [INF] Executing endpoint 'HTTP: GET /CashFlowReportDay'
+2023-07-20 00:36:23.298 -03:00 [INF] Report generated to date 07/20/2023 00:35:54
+2023-07-20 00:36:23.298 -03:00 [INF] Executed endpoint 'HTTP: GET /CashFlowReportDay'
+2023-07-20 00:36:23.299 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/CashFlowReportDay?Day=2023-07-20T03%3A35%3A54.539Z - - - 200 - application/json 1.9729ms
+2023-07-20 00:36:30.390 -03:00 [INF] Application is shutting down...
