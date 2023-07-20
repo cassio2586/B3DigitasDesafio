@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 using Autofac;
 using B3Digitas.Architecture.Infrastructure.Data;
-using B3Digitas.Architecture.Core.CashAggregate;
 using B3Digitas.Architecture.Core.Interfaces;
+using B3Digitas.Architecture.Core.OrderBookAggregate;
 using B3Digitas.Architecture.SharedKernel;
 using B3Digitas.Architecture.SharedKernel.Interfaces;
 using MediatR;
@@ -20,7 +20,7 @@ public class DefaultInfrastructureModule : Module
   {
     _isDevelopment = isDevelopment;
     var coreAssembly =
-      Assembly.GetAssembly(typeof(Cash));
+      Assembly.GetAssembly(typeof(OrderBook));
     var infrastructureAssembly = Assembly.GetAssembly(typeof(StartupSetup));
     if (coreAssembly != null)
     {

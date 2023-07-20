@@ -8,10 +8,8 @@ public class DefaultCoreModule : Module
 {
   protected override void Load(ContainerBuilder builder)
   {
-      builder.RegisterType<CreateCashService>()
-        .As<ICreateCashService>().InstancePerLifetimeScope();
+      builder.RegisterType<GetBookValuesService>()
+        .As<IGetBookValuesService>().InstancePerLifetimeScope();
       
-      builder.RegisterType<GetCashFlowDayReportService>()
-          .As<IGetCashFlowDayReportService>().InstancePerLifetimeScope();
   }
 }

@@ -8,24 +8,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e7500e5-93fd-4254-b4b9-bbf91cc4254e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Clean.Architecture/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Clean.Architecture/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Clean.Architecture/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Clean.Architecture/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Clean.Architecture/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Clean.Architecture/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Clean.Architecture.sln" beforeDir="false" afterPath="$PROJECT_DIR$/B3Digitas.Cripto.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CleanArchitecture.nuspec" beforeDir="false" afterPath="$PROJECT_DIR$/B3Digitas.Cripto.nuspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/database.sqlite" afterDir="false" />
+    <list default="true" id="6e7500e5-93fd-4254-b4b9-bbf91cc4254e" name="Changes" comment="Add Service Crawler listening">
+      <change afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/OrderBookAggregate/BookLevel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/OrderBookAggregate/Handlers/OrderBookAddHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/AutoMapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Clean.Architecture/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Clean.Architecture/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Directory.Packages.props" beforeDir="false" afterPath="$PROJECT_DIR$/Directory.Packages.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/CashAggregate/Cash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/OrderBookAggregate/OrderBook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/CashAggregate/CashFlowDayReport.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/OrderBookAggregate/BookValuesReport.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/CashAggregate/Enums/TransactionTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/OrderBookAggregate/Enums/TransactionTypeEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/CashAggregate/Events/CashAddEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/OrderBookAggregate/Events/OrderBookAddEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/CashAggregate/Handlers/CashAddHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/DefaultCoreModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/DefaultCoreModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/Interfaces/ICreateCashService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/Interfaces/ICreateBookValuesService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/Interfaces/IGetCashFlowDayReportService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/Interfaces/IGetBookValuesService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/Services/CreateCashService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/Services/CreateBookValuesService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/Services/GetCashFlowDayReportService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Core/Services/GetBookValuesService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Infrastructure/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Infrastructure/Data/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Infrastructure/DefaultInfrastructureModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Infrastructure/DefaultInfrastructureModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/B3Digitas.Architecture.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/B3Digitas.Architecture.Web.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Endpoints/CashEndpoints/Create.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Endpoints/CashEndpoints/Create.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Endpoints/CashEndpoints/CreateCashRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Endpoints/CashEndpoints/CreateOrderBookRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Endpoints/CashEndpoints/GetCashFlowReportDay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Endpoints/CashEndpoints/GetCashFlowReportDay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Endpoints/CashEndpoints/GetCashFlowReportDayResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Endpoints/CashEndpoints/GetCashFlowReportDayResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/log20230720.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/log20230720.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/B3Digitas.CriptoGearService/Bitstamp.Client.Websocket.Sample.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.CriptoGearService/B3Digitas.Architecture.ServiceCrawler.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/B3Digitas.CriptoGearService/B3Digitas.Architecture.ServiceCrawler.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.CriptoGearService/B3Digitas.Architecture.ServiceCrawler.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/B3Digitas.CriptoGearService/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/B3Digitas.CriptoGearService/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/845848f585624fe48c55d426c6ace92612400/12/0707c9cf/BitstampClientStreams.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/845848f585624fe48c55d426c6ace92612400/48/57b27ed9/OrderBook.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/845848f585624fe48c55d426c6ace92612400/5e/3f74fb16/BookLevel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/845848f585624fe48c55d426c6ace92612400/9c/0f236019/OrderBookSide.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/845848f585624fe48c55d426c6ace92612400/fa/dc970f8f/OrderBookResponse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/975bf429da2a47c2b8081c008d18db0b40600/96/7bc576c1/Mapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/975bf429da2a47c2b8081c008d18db0b40600/c9/1f95078e/LockingConcurrentDictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/975bf429da2a47c2b8081c008d18db0b40600/d1/68f4b0a3/MapperConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e98e6f8524ec4d86a3f98c94d88078442cc00/9d/0c6757ff/ConcurrentDictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -100,8 +125,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1689824099711</updated>
-      <workItem from="1689824102574" duration="345000" />
+      <workItem from="1689824102574" duration="6868000" />
     </task>
+    <task id="LOCAL-00001" summary="Add Service Crawler listening">
+      <option name="closed" value="true" />
+      <created>1689824768419</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689824768419</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,5 +155,26 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Add Service Crawler listening" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Service Crawler listening" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Endpoints/CashEndpoints/Create.cs</url>
+          <line>44</line>
+          <properties documentPath="$PROJECT_DIR$/src/B3Digitas.Architecture.Web/Endpoints/CashEndpoints/Create.cs" initialLine="44" containingFunctionPresentation="Method 'HandleAsync'">
+            <startOffsets>
+              <option value="1418" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1458" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

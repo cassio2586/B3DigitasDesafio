@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using B3Digitas.Architecture.Core.CashAggregate;
+using B3Digitas.Architecture.Core.OrderBookAggregate;
 using B3Digitas.Architecture.SharedKernel;
 using B3Digitas.Architecture.SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +17,7 @@ public class AppDbContext : DbContext
     _dispatcher = dispatcher;
   }
   
-  public DbSet<Cash> CashFlow => Set<Cash>();
+  public DbSet<OrderBook> OrderBook => Set<OrderBook>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {

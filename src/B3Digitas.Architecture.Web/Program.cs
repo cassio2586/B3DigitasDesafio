@@ -2,16 +2,19 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using B3Digitas.Architecture.Core;
+using B3Digitas.Architecture.Core.Interfaces;
+using B3Digitas.Architecture.Core.OrderBookAggregate;
+using B3Digitas.Architecture.Core.Services;
 using B3Digitas.Architecture.Infrastructure;
 using B3Digitas.Architecture.Infrastructure.Data;
-using B3Digitas.Architecture.Web;
+using B3Digitas.Architecture.Web.Endpoints.CashEndpoints;
 using FastEndpoints;
 using FastEndpoints.Swagger.Swashbuckle;
 using FastEndpoints.ApiExplorer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using IMapper = AutoMapper.IMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,8 +45,9 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 builder.Services.AddRazorPages();
 builder.Services.AddFastEndpoints();
-builder.Services.AddMemoryCache();
+
 builder.Services.AddFastEndpointsApiExplorer();
+builder.Services.AddScoped<ICreateBookValuesService, CreateBookValuesService>();
 builder.Services.AddSwaggerGen(c =>
 {
   c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
@@ -51,6 +55,18 @@ builder.Services.AddSwaggerGen(c =>
   c.OperationFilter<FastEndpointsOperationFilter>();
 });
 
+var config = new AutoMapper.MapperConfiguration(cfg =>
+{
+  cfg.CreateMap<OrderBook, CreateOrderBookRequest>();
+  cfg.CreateMap<CreateOrderBookRequest, OrderBook>();
+  cfg.CreateMap<BookLevelRequest, BookLevel>();
+  cfg.CreateMap<BookLevel, BookLevelRequest>();
+});
+IMapper mapper = config.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
+
+builder.Services.AddAutoMapper(typeof(Program));
 // add list services for diagnostic purposes - see https://github.com/ardalis/AspNetCoreStartupServices
 builder.Services.Configure<ServiceConfig>(config =>
 {

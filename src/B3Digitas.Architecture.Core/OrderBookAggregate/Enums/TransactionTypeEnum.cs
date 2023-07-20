@@ -1,4 +1,4 @@
-﻿namespace B3Digitas.Architecture.Core.CashAggregate.Enums;
+﻿namespace B3Digitas.Architecture.Core.OrderBookAggregate.Enums;
 
 public enum TransactionTypeEnum : int
 {

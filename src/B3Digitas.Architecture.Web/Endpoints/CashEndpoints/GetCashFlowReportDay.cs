@@ -1,4 +1,4 @@
-﻿using Ardalis.ApiEndpoints;
+﻿/*using Ardalis.ApiEndpoints;
 using B3Digitas.Architecture.Web.Endpoints.CashEndpoints;
 using B3Digitas.Architecture.Core.Interfaces;
 using B3Digitas.Architecture.SharedKernel.CustomExceptions;
@@ -47,4 +47,4 @@ public class GetCashFlowReportDay : Endpoint<GetCashFlowReportDayRequest, GetCas
             await SendErrorsAsync(400,cancellationToken);
         }
     }
-}
+}*/

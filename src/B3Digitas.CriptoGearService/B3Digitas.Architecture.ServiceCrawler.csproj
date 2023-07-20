@@ -7,9 +7,15 @@
 
   <ItemGroup>
     <PackageReference Include="Bitstamp.Client.Websocket" />
+    <PackageReference Include="Serilog" />
     <PackageReference Include="Serilog.Sinks.ColoredConsole" Version="3.0.1" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="Serilog.Sinks.File" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\B3Digitas.Architecture.Infrastructure\B3Digitas.Architecture.Infrastructure.csproj" />
+    <ProjectReference Include="..\B3Digitas.Architecture.Web\B3Digitas.Architecture.Web.csproj" />
   </ItemGroup>
 
 </Project>
