@@ -1,0 +1,58 @@
+2023-07-20 00:25:00.899 -03:00 [INF] Registered 2 endpoints in 262 milliseconds.
+2023-07-20 00:25:01.130 -03:00 [INF] User profile is available. Using '/home/linuxlite/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-20 00:25:01.920 -03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-07-20 00:25:02.034 -03:00 [INF] Now listening on: http://localhost:57679
+2023-07-20 00:25:02.034 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-20 00:25:02.039 -03:00 [INF] Hosting environment: Development
+2023-07-20 00:25:02.039 -03:00 [INF] Content root path: /home/linuxlite/RiderProjects/DesafioB3Digitas/src/B3Digitas.Architecture.Web
+2023-07-20 00:25:03.837 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-07-20 00:25:03.967 -03:00 [WRN] Failed to determine the https port for redirect.
+2023-07-20 00:25:04.023 -03:00 [INF] Executing endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-20 00:25:04.036 -03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CashFlow.Architecture.Web.Controllers.HomeController (B3Digitas.Architecture.Web).
+2023-07-20 00:25:04.051 -03:00 [INF] Executing ViewResult, running view Index.
+2023-07-20 00:25:04.190 -03:00 [INF] Executed ViewResult - view Index executed in 142.2435ms.
+2023-07-20 00:25:04.192 -03:00 [INF] Executed action CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web) in 154.8982ms
+2023-07-20 00:25:04.192 -03:00 [INF] Executed endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-20 00:25:04.201 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 200 - text/html;+charset=utf-8 366.4991ms
+2023-07-20 00:25:04.216 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/Clean.Architecture.Web.styles.css - -
+2023-07-20 00:25:04.217 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - -
+2023-07-20 00:25:04.220 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - -
+2023-07-20 00:25:04.220 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/css/site.css?v=ZJg29BfKMfPQ1nmIkdqg6iWhTGRNJx2HnD4FfdtVCcU - -
+2023-07-20 00:25:04.230 -03:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-07-20 00:25:04.230 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/Clean.Architecture.Web.styles.css - - - 404 0 - 14.5430ms
+2023-07-20 00:25:04.231 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - - - 304 - text/javascript 11.3788ms
+2023-07-20 00:25:04.236 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-07-20 00:25:04.236 -03:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2023-07-20 00:25:04.231 -03:00 [INF] The file /css/site.css was not modified
+2023-07-20 00:25:04.231 -03:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2023-07-20 00:25:04.237 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 20.0306ms
+2023-07-20 00:25:04.237 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/js/site.js?v=BxFAw9RUJ1E4NycpKEjCNDeoSvr4RPHixdBq5wDnkeY - -
+2023-07-20 00:25:04.238 -03:00 [INF] The file /js/site.js was not modified
+2023-07-20 00:25:04.238 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/js/site.js?v=BxFAw9RUJ1E4NycpKEjCNDeoSvr4RPHixdBq5wDnkeY - - - 304 - text/javascript 0.5950ms
+2023-07-20 00:25:04.238 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/css/site.css?v=ZJg29BfKMfPQ1nmIkdqg6iWhTGRNJx2HnD4FfdtVCcU - - - 304 - text/css 18.5922ms
+2023-07-20 00:25:04.239 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - text/javascript 3.6346ms
+2023-07-20 00:25:06.783 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-07-20 00:25:06.913 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 130.5042ms
+2023-07-20 00:25:07.049 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-07-20 00:25:07.244 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 195.0793ms
+2023-07-20 00:25:28.235 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/CashFlowReportDay?Day=2023-07-20T03%3A25%3A12.746Z - -
+2023-07-20 00:25:28.236 -03:00 [INF] Executing endpoint 'HTTP: GET /CashFlowReportDay'
+2023-07-20 00:25:28.284 -03:00 [INF] Report generated to date 07/20/2023 00:25:12
+2023-07-20 00:25:28.326 -03:00 [INF] Executed endpoint 'HTTP: GET /CashFlowReportDay'
+2023-07-20 00:25:28.328 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/CashFlowReportDay?Day=2023-07-20T03%3A25%3A12.746Z - - - 200 - application/json 92.9145ms
+2023-07-20 00:25:47.843 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/Cash application/json 131
+2023-07-20 00:25:47.843 -03:00 [INF] Executing endpoint 'HTTP: POST /Cash'
+2023-07-20 00:25:48.231 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Decimal), @p1='?' (DbType = DateTime), @p2='?' (Size = 6), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "CashFlow" ("Amount", "DateTimeTransaction", "Description", "TransactionType")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2023-07-20 00:25:48.305 -03:00 [INF] Transaction success saved.
+2023-07-20 00:25:48.306 -03:00 [INF] Executed endpoint 'HTTP: POST /Cash'
+2023-07-20 00:25:48.311 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/Cash application/json 131 - 204 - - 468.6267ms
+2023-07-20 00:25:57.592 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/CashFlowReportDay?Day=2023-07-20T03%3A25%3A12.746Z - -
+2023-07-20 00:25:57.593 -03:00 [INF] Executing endpoint 'HTTP: GET /CashFlowReportDay'
+2023-07-20 00:25:57.594 -03:00 [INF] Report generated to date 07/20/2023 00:25:12
+2023-07-20 00:25:57.595 -03:00 [INF] Executed endpoint 'HTTP: GET /CashFlowReportDay'
+2023-07-20 00:25:57.595 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/CashFlowReportDay?Day=2023-07-20T03%3A25%3A12.746Z - - - 200 - application/json 2.3593ms
+2023-07-20 00:28:19.575 -03:00 [INF] Application is shutting down...
