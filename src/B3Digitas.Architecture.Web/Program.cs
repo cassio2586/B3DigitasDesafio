@@ -50,6 +50,7 @@ builder.Services.AddFastEndpoints();
 
 builder.Services.AddFastEndpointsApiExplorer();
 builder.Services.AddScoped<ICreateBookValuesService, CreateBookValuesService>();
+builder.Services.AddScoped<ICreateOrderValuesService, CreateOrderValuesService>();
 builder.Services.AddSwaggerGen(c =>
 {
   c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });

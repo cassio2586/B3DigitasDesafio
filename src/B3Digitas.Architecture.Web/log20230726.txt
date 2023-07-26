@@ -1,0 +1,149 @@
+2023-07-26 21:25:35.217 +00:00 [INF] Registered 2 endpoints in 460 milliseconds.
+2023-07-26 21:25:35.511 +00:00 [INF] User profile is available. Using '/home/codespace/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-26 21:25:36.648 +00:00 [WRN] The foreign key property 'BookLevel.OrderBookId1' was created in shadow state because a conflicting property with the simple name 'OrderBookId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-07-26 21:25:37.333 +00:00 [INF] Executed DbCommand (329ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-07-26 21:25:37.705 +00:00 [INF] Now listening on: http://localhost:57679
+2023-07-26 21:25:37.706 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-26 21:25:37.708 +00:00 [INF] Hosting environment: Development
+2023-07-26 21:25:37.709 +00:00 [INF] Content root path: /workspaces/B3DigitasDesafio/src/B3Digitas.Architecture.Web
+2023-07-26 21:25:38.562 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/ - -
+2023-07-26 21:25:38.731 +00:00 [WRN] Failed to determine the https port for redirect.
+2023-07-26 21:25:38.754 +00:00 [INF] Executing endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-26 21:25:38.763 +00:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CashFlow.Architecture.Web.Controllers.HomeController (B3Digitas.Architecture.Web).
+2023-07-26 21:25:38.775 +00:00 [INF] Executing ViewResult, running view Index.
+2023-07-26 21:25:38.868 +00:00 [INF] Executed ViewResult - view Index executed in 95.216ms.
+2023-07-26 21:25:38.871 +00:00 [INF] Executed action CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web) in 106.5639ms
+2023-07-26 21:25:38.871 +00:00 [INF] Executed endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-26 21:25:38.877 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/ - - - 200 - text/html;+charset=utf-8 323.0681ms
+2023-07-26 21:25:39.077 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/Clean.Architecture.Web.styles.css - -
+2023-07-26 21:25:39.080 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/css/bootstrap.min.css - -
+2023-07-26 21:25:39.091 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/Clean.Architecture.Web.styles.css - - - 404 0 - 13.5558ms
+2023-07-26 21:25:39.109 +00:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2023-07-26 21:25:39.111 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 31.7828ms
+2023-07-26 21:25:39.256 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/css/site.css?v=ZJg29BfKMfPQ1nmIkdqg6iWhTGRNJx2HnD4FfdtVCcU - -
+2023-07-26 21:25:39.257 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/lib/jquery/dist/jquery.min.js - -
+2023-07-26 21:25:39.260 +00:00 [INF] The file /css/site.css was not modified
+2023-07-26 21:25:39.261 +00:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-07-26 21:25:39.262 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/lib/jquery/dist/jquery.min.js - - - 304 - text/javascript 5.1905ms
+2023-07-26 21:25:39.263 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/css/site.css?v=ZJg29BfKMfPQ1nmIkdqg6iWhTGRNJx2HnD4FfdtVCcU - - - 304 - text/css 7.7115ms
+2023-07-26 21:25:39.264 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-07-26 21:25:39.265 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/js/site.js?v=BxFAw9RUJ1E4NycpKEjCNDeoSvr4RPHixdBq5wDnkeY - -
+2023-07-26 21:25:39.267 +00:00 [INF] The file /js/site.js was not modified
+2023-07-26 21:25:39.267 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/js/site.js?v=BxFAw9RUJ1E4NycpKEjCNDeoSvr4RPHixdBq5wDnkeY - - - 304 - text/javascript 1.5571ms
+2023-07-26 21:25:39.266 +00:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2023-07-26 21:25:39.268 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - text/javascript 3.7170ms
+2023-07-26 21:40:48.833 +00:00 [INF] Registered 2 endpoints in 1195 milliseconds.
+2023-07-26 21:40:49.355 +00:00 [INF] User profile is available. Using '/home/codespace/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-26 21:40:50.337 +00:00 [WRN] The foreign key property 'BookLevel.OrderBookId1' was created in shadow state because a conflicting property with the simple name 'OrderBookId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-07-26 21:40:50.826 +00:00 [INF] Executed DbCommand (219ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-07-26 21:40:51.289 +00:00 [INF] Now listening on: http://localhost:57679
+2023-07-26 21:40:51.291 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-26 21:40:51.292 +00:00 [INF] Hosting environment: Development
+2023-07-26 21:40:51.292 +00:00 [INF] Content root path: /workspaces/B3DigitasDesafio/src/B3Digitas.Architecture.Web
+2023-07-26 21:40:52.010 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/ - -
+2023-07-26 21:40:52.150 +00:00 [WRN] Failed to determine the https port for redirect.
+2023-07-26 21:40:52.175 +00:00 [INF] Executing endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-26 21:40:52.185 +00:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CashFlow.Architecture.Web.Controllers.HomeController (B3Digitas.Architecture.Web).
+2023-07-26 21:40:52.196 +00:00 [INF] Executing ViewResult, running view Index.
+2023-07-26 21:40:52.288 +00:00 [INF] Executed ViewResult - view Index executed in 93.9948ms.
+2023-07-26 21:40:52.290 +00:00 [INF] Executed action CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web) in 104.1841ms
+2023-07-26 21:40:52.291 +00:00 [INF] Executed endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-26 21:40:52.297 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/ - - - 200 - text/html;+charset=utf-8 288.7024ms
+2023-07-26 21:40:52.420 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/Clean.Architecture.Web.styles.css - -
+2023-07-26 21:40:52.428 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/css/bootstrap.min.css - -
+2023-07-26 21:40:52.459 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/Clean.Architecture.Web.styles.css - - - 404 0 - 38.9894ms
+2023-07-26 21:40:52.488 +00:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2023-07-26 21:40:52.491 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 62.7599ms
+2023-07-26 21:40:52.669 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/js/site.js?v=BxFAw9RUJ1E4NycpKEjCNDeoSvr4RPHixdBq5wDnkeY - -
+2023-07-26 21:40:52.671 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-07-26 21:40:52.672 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/css/site.css?v=ZJg29BfKMfPQ1nmIkdqg6iWhTGRNJx2HnD4FfdtVCcU - -
+2023-07-26 21:40:52.674 +00:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2023-07-26 21:40:52.675 +00:00 [INF] The file /js/site.js was not modified
+2023-07-26 21:40:52.675 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - text/javascript 3.2464ms
+2023-07-26 21:40:52.674 +00:00 [INF] The file /css/site.css was not modified
+2023-07-26 21:40:52.676 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/lib/jquery/dist/jquery.min.js - -
+2023-07-26 21:40:52.677 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/css/site.css?v=ZJg29BfKMfPQ1nmIkdqg6iWhTGRNJx2HnD4FfdtVCcU - - - 304 - text/css 4.7214ms
+2023-07-26 21:40:52.677 +00:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-07-26 21:40:52.677 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/js/site.js?v=BxFAw9RUJ1E4NycpKEjCNDeoSvr4RPHixdBq5wDnkeY - - - 304 - text/javascript 7.1297ms
+2023-07-26 21:40:52.679 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/lib/jquery/dist/jquery.min.js - - - 304 - text/javascript 2.8675ms
+2023-07-26 22:07:14.562 +00:00 [INF] Registered 3 endpoints in 680 milliseconds.
+2023-07-26 22:07:14.992 +00:00 [INF] User profile is available. Using '/home/codespace/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-26 22:07:15.875 +00:00 [WRN] The foreign key property 'BookLevel.OrderBookId1' was created in shadow state because a conflicting property with the simple name 'OrderBookId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-07-26 22:07:16.211 +00:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-07-26 22:07:16.602 +00:00 [INF] Now listening on: http://localhost:57679
+2023-07-26 22:07:16.605 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-26 22:07:16.605 +00:00 [INF] Hosting environment: Development
+2023-07-26 22:07:16.626 +00:00 [INF] Content root path: /workspaces/B3DigitasDesafio/src/B3Digitas.Architecture.Web
+2023-07-26 22:07:17.517 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/ - -
+2023-07-26 22:07:17.712 +00:00 [WRN] Failed to determine the https port for redirect.
+2023-07-26 22:07:17.767 +00:00 [INF] Executing endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-26 22:07:17.777 +00:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CashFlow.Architecture.Web.Controllers.HomeController (B3Digitas.Architecture.Web).
+2023-07-26 22:07:17.788 +00:00 [INF] Executing ViewResult, running view Index.
+2023-07-26 22:07:17.902 +00:00 [INF] Executed ViewResult - view Index executed in 111.0416ms.
+2023-07-26 22:07:17.904 +00:00 [INF] Executed action CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web) in 126.0141ms
+2023-07-26 22:07:17.905 +00:00 [INF] Executed endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-26 22:07:17.912 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/ - - - 200 - text/html;+charset=utf-8 397.4942ms
+2023-07-26 22:07:18.059 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/Clean.Architecture.Web.styles.css - -
+2023-07-26 22:07:18.060 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/css/bootstrap.min.css - -
+2023-07-26 22:07:18.068 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/Clean.Architecture.Web.styles.css - - - 404 0 - 7.5147ms
+2023-07-26 22:07:18.086 +00:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2023-07-26 22:07:18.088 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 27.9346ms
+2023-07-26 22:07:18.280 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/css/site.css?v=ZJg29BfKMfPQ1nmIkdqg6iWhTGRNJx2HnD4FfdtVCcU - -
+2023-07-26 22:07:18.280 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/lib/jquery/dist/jquery.min.js - -
+2023-07-26 22:07:18.283 +00:00 [INF] The file /css/site.css was not modified
+2023-07-26 22:07:18.283 +00:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-07-26 22:07:18.285 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/lib/jquery/dist/jquery.min.js - - - 304 - text/javascript 4.3394ms
+2023-07-26 22:07:18.285 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/js/site.js?v=BxFAw9RUJ1E4NycpKEjCNDeoSvr4RPHixdBq5wDnkeY - -
+2023-07-26 22:07:18.285 +00:00 [INF] The file /js/site.js was not modified
+2023-07-26 22:07:18.286 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/js/site.js?v=BxFAw9RUJ1E4NycpKEjCNDeoSvr4RPHixdBq5wDnkeY - - - 304 - text/javascript 0.5069ms
+2023-07-26 22:07:18.285 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/css/site.css?v=ZJg29BfKMfPQ1nmIkdqg6iWhTGRNJx2HnD4FfdtVCcU - - - 304 - text/css 4.3127ms
+2023-07-26 22:07:18.284 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-07-26 22:07:18.288 +00:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2023-07-26 22:07:18.288 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - text/javascript 3.8949ms
+2023-07-26 22:07:20.808 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/swagger/index.html - -
+2023-07-26 22:07:20.878 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 70.5265ms
+2023-07-26 22:07:21.118 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/swagger/v1/swagger.json - -
+2023-07-26 22:07:21.302 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 184.1550ms
+2023-07-26 22:07:29.669 +00:00 [INF] Request starting HTTP/1.1 POST http://127.0.0.1:57679/OrderCalc application/json 202
+2023-07-26 22:07:29.670 +00:00 [INF] Executing endpoint 'HTTP: POST /OrderCalc'
+2023-07-26 22:07:29.870 +00:00 [INF] Executed endpoint 'HTTP: POST /OrderCalc'
+2023-07-26 22:07:29.871 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Cannot create a DbSet for 'Order' because this type is not included in the model for the context.
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.get_EntityType()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.EntryWithoutDetectChanges(TEntity entity)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at Ardalis.Specification.EntityFrameworkCore.EfRepositoryBase`1.AddAsync(T entity, CancellationToken cancellationToken) in /workspaces/B3DigitasDesafio/src/B3Digitas.Architecture.Infrastructure/Data/EfRepositoryBase.cs:line 34
+   at B3Digitas.Architecture.Core.Services.CreateOrderValuesService.Add(Order order) in /workspaces/B3DigitasDesafio/src/B3Digitas.Architecture.Core/Services/CreateOrderValuesService.cs:line 34
+   at B3Digitas.Architecture.Web.Endpoints.CashEndpoints.CreateOrder.HandleAsync(CreateOrderRequest request, CancellationToken cancellationToken) in /workspaces/B3DigitasDesafio/src/B3Digitas.Architecture.Web/Endpoints/CashEndpoints/CreateOrder.cs:line 38
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-07-26 22:07:29.944 +00:00 [INF] Request finished HTTP/1.1 POST http://127.0.0.1:57679/OrderCalc application/json 202 - 500 - text/plain;+charset=utf-8 275.0116ms
+2023-07-26 22:11:10.131 +00:00 [INF] Registered 3 endpoints in 464 milliseconds.
+2023-07-26 22:11:10.578 +00:00 [INF] User profile is available. Using '/home/codespace/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-26 22:11:11.220 +00:00 [WRN] The foreign key property 'BookLevel.OrderBookId1' was created in shadow state because a conflicting property with the simple name 'OrderBookId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-07-26 22:11:11.420 +00:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-07-26 22:11:11.773 +00:00 [INF] Now listening on: http://localhost:57679
+2023-07-26 22:11:11.774 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-26 22:11:11.776 +00:00 [INF] Hosting environment: Development
+2023-07-26 22:11:11.776 +00:00 [INF] Content root path: /workspaces/B3DigitasDesafio/src/B3Digitas.Architecture.Web
+2023-07-26 22:11:12.534 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/ - -
+2023-07-26 22:11:12.668 +00:00 [WRN] Failed to determine the https port for redirect.
+2023-07-26 22:11:12.692 +00:00 [INF] Executing endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-26 22:11:12.702 +00:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CashFlow.Architecture.Web.Controllers.HomeController (B3Digitas.Architecture.Web).
+2023-07-26 22:11:12.713 +00:00 [INF] Executing ViewResult, running view Index.
+2023-07-26 22:11:12.804 +00:00 [INF] Executed ViewResult - view Index executed in 92.3344ms.
+2023-07-26 22:11:12.806 +00:00 [INF] Executed action CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web) in 103.1236ms
+2023-07-26 22:11:12.807 +00:00 [INF] Executed endpoint 'CashFlow.Architecture.Web.Controllers.HomeController.Index (B3Digitas.Architecture.Web)'
+2023-07-26 22:11:12.813 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/ - - - 200 - text/html;+charset=utf-8 280.3750ms
+2023-07-26 22:11:12.947 +00:00 [INF] Request starting HTTP/1.1 GET http://127.0.0.1:57679/Clean.Architecture.Web.styles.css - -
+2023-07-26 22:11:12.953 +00:00 [INF] Request finished HTTP/1.1 GET http://127.0.0.1:57679/Clean.Architecture.Web.styles.css - - - 404 0 - 5.8703ms

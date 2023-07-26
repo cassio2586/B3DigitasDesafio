@@ -1,3 +1,12 @@
 {
-    "dotnet.defaultSolution": "B3Digitas.Cripto.sln"
+    "dotnet.defaultSolution": "B3Digitas.Cripto.sln",
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "teste",
+            "database": "${workspaceFolder:B3DigitasDesafio}/src/B3Digitas.Architecture.Web/database.sqlite"
+        }
+    ]
 }
