@@ -10,6 +10,6 @@ public class CreateOrderRequest
 
     public string? Side{get;set;}
     
-    public decimal? Qtd{get;set;}
+    public decimal Amount{get;set;}
 
 }

@@ -11,9 +11,11 @@ public class CreateOrder : Endpoint<CreateOrderRequest>
     private readonly ICreateOrderValuesService _createOrderValuesService;
     private readonly ILogger<CreateOrder> _logger;
     private readonly global::AutoMapper.IMapper _mapper;
+    private readonly IGetBookValuesService _getBookValuesService;
 
-    public CreateOrder(ICreateOrderValuesService service, ILogger<CreateOrder> logger, global::AutoMapper.IMapper mapper)
+    public CreateOrder(IGetBookValuesService getBookValuesService,ICreateOrderValuesService service, ILogger<CreateOrder> logger, global::AutoMapper.IMapper mapper)
     {
+        _getBookValuesService = getBookValuesService;
         _createOrderValuesService = service;
         _logger = logger;
         _mapper = mapper;
@@ -33,17 +35,68 @@ public class CreateOrder : Endpoint<CreateOrderRequest>
     {
         try
         {
+            var bookLevelAdded = new List<BookLevel>();
             
-        
-            var result = await _createOrderValuesService.Add(new B3Digitas.Architecture.Core.OrderBookAggregate.Order());
-
-            if (result.Status == ResultStatus.NotFound)
+            if (request.Symbol != null)
             {
-                await SendNotFoundAsync(cancellationToken);
-                return;
+                var obj = _getBookValuesService.GetBySymbol(request.Symbol);
+                var bookLevels =  obj.FirstOrDefault()?.BookLevels;
+                
+                if (request.Side == "C")
+                {
+                    if (bookLevels != null)
+                    {
+                        var asks = bookLevels.Where(x => x.Side == OrderBookSide.Ask).OrderByDescending(x => x.Price);
+
+                        foreach (var ask in asks)
+                        {
+                            if ((decimal)ask.Amount > request.Amount)
+                            {
+                                bookLevelAdded.Add(ask);
+                            }
+                        
+                        }
+                    }
+                }
+                else
+                {
+                    if (bookLevels != null)
+                    {
+                        var bids = bookLevels.Where(x => x.Side == OrderBookSide.Bid).OrderByDescending(x => x.Price);
+
+                        foreach (var bid in bids)
+                        {
+                            if ((decimal)bid.Amount > request.Amount)
+                            {
+                                bookLevelAdded.Add(bid);
+                            }
+                        }
+                    }
+
+                }
             }
 
-            await SendNoContentAsync(cancellationToken);
+            var orderInsert = new B3Digitas.Architecture.Core.OrderBookAggregate.Order()
+            {
+                Symbol = request.Symbol,
+                Amount = request.Amount,
+                Side = request.Side,
+                BestPrice = (decimal)bookLevelAdded.Sum(x => x.Price) * (decimal)bookLevelAdded.Sum(x => x.Amount),
+                Guid = Guid.NewGuid().ToString("N")
+            };
+            
+            await _createOrderValuesService.Add(orderInsert);
+            var result = new CreateOrderResponse()
+            {
+                Symbol = orderInsert.Symbol,
+                Amount = orderInsert.Amount,
+                Side = orderInsert.Side,
+                BestPrice = orderInsert.BestPrice,
+                BookLevels = bookLevelAdded, Guid = orderInsert.Guid
+            };
+            
+            await SendAsync(result,
+                cancellation: cancellationToken);
         }
         catch (InvalidDataException)
         {
