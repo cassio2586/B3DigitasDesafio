@@ -1,6 +1,7 @@
+/*
 using System.ComponentModel.DataAnnotations;
 
-namespace B3Digitas.Architecture.Web.Endpoints.CashEndpoints;
+//*namespace B3Digitas.Architecture.Web.Endpoints.CashEndpoints;
 
 public class GetCashFlowReportDayRequest
 {
@@ -10,3 +11,4 @@ public class GetCashFlowReportDayRequest
   public DateTime Day { get; set; }
   
 }
+*/

@@ -18,11 +18,18 @@ public class AppDbContext : DbContext
   }
   
   public DbSet<OrderBook> OrderBook => Set<OrderBook>();
+  public DbSet<BookLevel> BookLevel => Set<BookLevel>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);
     modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    
+    modelBuilder.Entity<BookLevel>()
+      .HasOne<OrderBook>()
+      .WithMany(s=>s.BookLevels)
+      .HasForeignKey(e=>e.OrderBookId);
+
   }
   public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
   {

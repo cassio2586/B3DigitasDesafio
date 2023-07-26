@@ -5,5 +5,10 @@ namespace B3Digitas.Architecture.Core.Interfaces;
 
 public interface IGetBookValuesService
 {
-  BookValuesReport GetByInstrument(string instrument);
+  IEnumerable<OrderBook> GetBySymbol(string symbol);
+  IEnumerable<OrderBook> GetBySymbolLastFiveSeconds(string? symbol);
+  decimal GetMaxPrice(string symbol);
+  decimal GetMinPrice(string symbol);
+  decimal GetAvgPriceLastFiveSeconds(string symbol);
+  decimal GetAvgQtd(string symbol);
 }

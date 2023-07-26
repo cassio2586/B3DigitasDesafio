@@ -168,17 +168,17 @@ namespace B3Digitas.Architecture.ServiceCrawler
             orderBook.Symbol = x.Symbol;
             orderBook.Microtimestamp = x.Data.Microtimestamp;
             orderBook.Timestamp = x.Data.Timestamp;
-            orderBook.Details = new List<BookLevelRequest>();
+            orderBook.BookLevels = new List<BookLevelRequest>();
             
             foreach (var ask in x.Data.Asks)
             {
-                orderBook.Details.Add(new BookLevelRequest()
+                orderBook.BookLevels.Add(new BookLevelRequest()
                     { BookType = 1, Amount = ask.Amount, OrderId = ask.OrderId, Price = ask.Price, SideRequest = MapEnumSide(ask.Side)  });
             }
 
             foreach (var bid in x.Data.Bids)
             {
-                orderBook.Details.Add(new BookLevelRequest()
+                orderBook.BookLevels.Add(new BookLevelRequest()
                     { BookType = 2, Amount = bid.Amount, OrderId = bid.OrderId, Price = bid.Price, SideRequest = MapEnumSide(bid.Side) });
             }
 
