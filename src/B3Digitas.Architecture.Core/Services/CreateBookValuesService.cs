@@ -32,10 +32,10 @@ public class CreateBookValuesService : ICreateBookValuesService
     if(orderBook.BookLevels is null)
       throw new ArgumentNullException();
 
-    var orderBookAggregate = orderBook;
-    var orderBookAdded = await _repository.AddAsync(orderBookAggregate);
-    await _repository.SaveChangesAsync();
-    var domainEvent = new OrderBookAddEvent(orderBookAdded);
+    //var orderBookAggregate = orderBook;
+    //var orderBookAdded = await _repository.AddAsync(orderBookAggregate);
+    //await _repository.SaveChangesAsync();
+    var domainEvent = new OrderBookAddEvent(orderBook);
     await _mediator.Publish(domainEvent);
     _logger.LogInformation("Transaction success saved.");
 

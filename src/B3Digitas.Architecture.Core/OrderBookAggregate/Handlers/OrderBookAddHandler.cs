@@ -26,19 +26,18 @@ public class OrderBookAddHandler : INotificationHandler<OrderBookAddEvent>
 
     var avgHistOrderBook = new List<decimal>();
 
-    var remove = histOrderBook.Where(a=>a.Timestamp < DateTime.Now.AddSeconds(-5));
+    var remove = histOrderBook.Where(a=>a.Timestamp < DateTime.Now.AddSeconds(-5)).ToList();
     if (remove.Count() > 0)
     {
-      foreach (var orderBookToRemove in remove)
+      for(int a = 0; a<=remove.Count()-1; a++)
       {
-        histOrderBook.Remove(orderBookToRemove);
+        histOrderBook.Remove(remove[a]);
       }
     }
       
-    
-    foreach (var orderBook in histOrderBook)
+    for(int a= 0;a<=histOrderBook.Count()-1;a++)
     {
-      avgHistOrderBook.Add((decimal)orderBook.BookLevels.Average(a=>a.Price));
+      avgHistOrderBook.Add((decimal)histOrderBook[a].BookLevels.Average(a=>a.Price));
     }
     if(avgHistOrderBook.Count > 0)
       domainEvent.OrderBook.FiveSecondAvgPrice = avgHistOrderBook.Average();

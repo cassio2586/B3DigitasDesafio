@@ -8,7 +8,6 @@
   <ItemGroup>
     <PackageReference Include="Bitstamp.Client.Websocket" />
     <PackageReference Include="Serilog" />
-    <PackageReference Include="Serilog.Sinks.ColoredConsole" Version="3.0.1" />
     <PackageReference Include="Serilog.Sinks.Console" />
     <PackageReference Include="Serilog.Sinks.File" />
   </ItemGroup>
