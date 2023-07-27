@@ -60,10 +60,16 @@ builder.Services.AddSwaggerGen(c =>
 
 var config = new AutoMapper.MapperConfiguration(cfg =>
 {
+    
   cfg.CreateMap<OrderBook, CreateOrderBookRequest>();
   cfg.CreateMap<CreateOrderBookRequest, OrderBook>();
-  cfg.CreateMap<BookLevelRequest, BookLevel>();
+  cfg.CreateMap<BookLevelRequest, BookLevel>().ForMember
+  (
+    dest => dest.Side, opt => opt.MapFrom(src => src.SideRequest));
   cfg.CreateMap<BookLevel, BookLevelRequest>();
+
+
+
 });
 IMapper mapper = config.CreateMapper();
 builder.Services.AddSingleton(mapper);

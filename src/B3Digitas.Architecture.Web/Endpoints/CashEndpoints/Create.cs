@@ -43,6 +43,7 @@ public class Create : Endpoint<CreateOrderBookRequest>
             */
 
             var x = _mapper.Map<OrderBook>(request);
+
             var result = await _createBookValuesService.Add(_mapper.Map<OrderBook>(request));
 
             if (result.Status == ResultStatus.NotFound)
