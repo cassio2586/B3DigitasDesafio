@@ -1,11 +1,15 @@
-# Desafio Banco Carrefour - Arquiteto de Software
+# Desafio B3 Digitas - Engenheiro de Software Sênior
 
 # Sobre o projeto
-O objetivo deste repositório é demonstrar minha habilidades técnicas e arquiteturais em um desafio proposto para o banco carrefour
+O objetivo deste repositório é demonstrar minha habilidades técnicas e arquiteturais em um desafio proposto pela B3 Digitas.
 
 # Requisitos funcionais
-* Adicionar operação de Crédito ou Débito
-* Consultar saldo por dia
+* Obter OrderBook dos intrumentos BTC/USD e ETH/USD e persistir
+* Demonstrar Maior e menor preço de cada ativo naquele momento
+* Demonstrar Média de preço de cada ativo naquele momento
+* Demonstrar Média de preço de cada ativo acumulada nos últimos 5 segundos
+* Demonstrar Média de quantidade acumulada de cada ativo
+* Calcular simulação de melhor preço e persistir cálculo
 
 # Requisitos não funcionais
 * Segurança
@@ -19,18 +23,9 @@ O objetivo deste repositório é demonstrar minha habilidades técnicas e arquit
 * ASP.NET Core (.NET 6) Web API
 * Entity Framework Core (EFCore 6)
 * MediatR for .NET 6
-* Fluent Validation for .NET 6
 * SQLite
 * SwaggerUI
 * AutoMapper
-* Ocelot
-* Consul
-* Fortgate
-* Sonar
-* Prometheus
-* Redis
-
-![teste drawio](https://github.com/cassio2586/ArquiteturaReferenciaC-/assets/27103177/6cb5c765-8479-42c2-b071-162ab90f01a5)
 
 # Porquê utilizei Microserviços
 Microserviços oferecem escalabilidade, flexibilidade, agilidade no desenvolvimento, facilidade de manutenção e evolução, resiliência, escalabilidade seletiva, integração e interoperabilidade, além de facilitar a adoção de novas tecnologias. 
@@ -70,29 +65,7 @@ Este modelo de solução tem código integrado para dar suporte a alguns padrõe
 Os eventos de domínio são um ótimo padrão para desacoplar um gatilho para uma operação de sua implementação. Isso é especialmente útil dentro das entidades de domínio, pois os manipuladores dos eventos podem ter dependências, enquanto as próprias entidades normalmente não. No exemplo, você pode ver isso em ação com o método ToDoItem.MarkComplete(). O diagrama de sequência a seguir demonstra como o evento e seu manipulador são usados ​​quando um item é marcado como concluído por meio de um ponto de extremidade da API da Web.
 
 
-# Observabilidade - Escolha do Prometheus
-1 - Coleta de métricas: O Prometheus é projetado para coletar métricas de diferentes componentes de um sistema. Ele oferece suporte a várias bibliotecas e protocolos de exportação, permitindo que você instrumente seu código para expor métricas relevantes. Isso permite que você monitore o desempenho e o comportamento do sistema em tempo real.
-
-2 - Consultas e alertas flexíveis: O Prometheus fornece uma linguagem de consulta flexível chamada PromQL, que permite que você faça consultas poderosas sobre os dados coletados. Você pode criar consultas para calcular estatísticas, criar gráficos e detectar anomalias. Além disso, o Prometheus possui recursos integrados de alerta, permitindo que você defina regras personalizadas para acionar alertas com base nas métricas coletadas.
-
-3 - Armazenamento eficiente: O Prometheus usa uma abordagem de armazenamento baseada em séries temporais, o que o torna eficiente em termos de espaço de armazenamento e tempo de recuperação de dados. Ele retém amostras em um formato compacto por um período de tempo configurável, o que o torna adequado para coletar dados de longo prazo. Isso significa que você pode acompanhar o histórico de métricas e analisar tendências ao longo do tempo.
-
-4 - Ecossistema e integração: O Prometheus possui um ecossistema robusto de ferramentas e integrações que o tornam uma escolha popular para observabilidade. Ele pode ser facilmente integrado a outras ferramentas de monitoramento e alerta, como Grafana, Alertmanager e diversas bibliotecas de instrumentação. Além disso, existem bibliotecas cliente disponíveis para várias linguagens de programação, facilitando a instrumentação de seus aplicativos.
-
-5 - Escalabilidade e suporte a alta disponibilidade: O Prometheus foi projetado para ser escalável e suportar implantações de alta disponibilidade. Você pode configurar várias instâncias do Prometheus em um ambiente de produção para coletar métricas de forma distribuída. Além disso, ele suporta sistemas de armazenamento remoto para cenários em que você precisa coletar métricas em várias regiões ou data centers.
-
-# Resiliência - Escolha do Ocelot
-   1-  Tolerância a falhas: O Ocelot fornece recursos para lidar com falhas em sistemas distribuídos. Ele oferece suporte a estratégias de fallback, que permitem que você defina um comportamento alternativo quando um serviço ou rota está indisponível. Isso significa que seu sistema pode continuar operando mesmo quando ocorrem falhas temporárias em serviços dependentes.
-
-   2 - Circuit Breaker: O Ocelot implementa o padrão de projeto Circuit Breaker, que ajuda a evitar falhas em cascata e sobrecarga de recursos. O Circuit Breaker monitora a disponibilidade de um serviço e interrompe temporariamente as chamadas a esse serviço se ele estiver indisponível ou com mau desempenho. Isso ajuda a proteger seu sistema e permite uma rápida recuperação quando o serviço se torna disponível novamente.
-
-   3 - Roteamento dinâmico: O Ocelot permite o roteamento dinâmico de solicitações com base em várias regras e critérios. Isso significa que você pode redirecionar as solicitações para diferentes serviços com base em condições específicas, como balanceamento de carga, localização geográfica, capacidade de resposta do serviço e muito mais. Essa flexibilidade permite que você dimensione e gerencie seus serviços de forma eficiente.
-
-  4 -  Gerenciamento de limites: O Ocelot permite definir limites e políticas para controlar o acesso aos serviços. Você pode configurar limites de taxa por IP, por usuário ou por serviço, evitando assim abusos e sobrecargas. Além disso, o Ocelot oferece recursos de cache, que podem melhorar o desempenho do sistema, reduzindo a carga nos serviços backend.
-
-5 - Integração com outros serviços: O Ocelot é altamente flexível e pode ser facilmente integrado com outros serviços e ferramentas. Ele pode ser usado em conjunto com plataformas de orquestração de contêineres, como Kubernetes, para fornecer resiliência em ambientes de contêiner. Além disso, o Ocelot é compatível com várias bibliotecas e padrões de autenticação e autorização, permitindo a integração perfeita com sistemas de segurança existentes.
-
-# Performance - CQRS
+# Performance - CQRS - MemoryCache .NET
 Melhorar a performance com CQRS (Command Query Responsibility Segregation) pode trazer benefícios significativos para sistemas de software. Aqui estão algumas razões pelas quais a implementação de CQRS pode ajudar a melhorar a performance:
 
    1 - Modelagem otimizada para leitura e escrita: Com CQRS, você pode projetar modelos de leitura otimizados para consultas específicas, sem se preocupar com a consistência dos dados. Isso significa que você pode criar estruturas de dados denormalizadas, índices específicos e caches de leitura para acelerar as operações de consulta. Ao separar a lógica de leitura e escrita, você pode adotar abordagens diferentes para cada uma delas, garantindo uma melhor performance em ambos os casos.
@@ -105,28 +78,34 @@ Melhorar a performance com CQRS (Command Query Responsibility Segregation) pode 
 
    5 - Adoção de tecnologias específicas: Ao implementar CQRS, você pode escolher tecnologias específicas para cada parte do sistema, levando em consideração os requisitos de performance. Por exemplo, você pode optar por um banco de dados relacional otimizado para escrita e um mecanismo de indexação de alto desempenho para leitura. Isso permite a utilização das melhores ferramentas para cada contexto, maximizando a performance global do sistema.
 
-# Segurança - Escolha Auth0
-1 - Gestão de identidade e acesso: O Auth0 oferece recursos avançados de gestão de identidade e acesso, permitindo que você adicione autenticação robusta e autorização granular aos seus aplicativos. Ele suporta autenticação multi-fator (MFA), autenticação social (por exemplo, login com contas do Google, Facebook, etc.), autenticação baseada em tokens (como JWT) e muito mais. Isso permite que você proteja seus aplicativos e APIs de forma eficaz, garantindo que apenas usuários autorizados tenham acesso.
+# Mediator
+O padrão Mediator é útil quando há muitas interações complexas entre objetos em um sistema e as dependências diretas entre esses objetos podem se tornar confusas e difíceis de manter. Ao introduzir o Mediator, cada objeto pode se concentrar em suas próprias responsabilidades, e a lógica de comunicação e coordenação é transferida para o objeto Mediator.
 
-2 - Integração fácil: O Auth0 é projetado para facilitar a integração em diferentes cenários de aplicativos e plataformas. Ele oferece bibliotecas cliente para várias linguagens de programação e frameworks populares, bem como SDKs nativos para dispositivos móveis. Além disso, o Auth0 possui uma ampla gama de extensões e integrações pré-construídas para serviços populares, como AWS, Azure, WordPress, Salesforce e muitos outros, o que simplifica ainda mais a implementação de segurança em seu ecossistema de aplicativos.
+Vantagens do padrão Mediator:
 
-3 - Gestão de usuários e conformidade: O Auth0 fornece recursos completos de gestão de usuários, permitindo que você gerencie o ciclo de vida dos usuários, defina perfis personalizados, controle o acesso com base em papéis e atributos, e muito mais. Além disso, o Auth0 oferece recursos para auxiliar na conformidade com regulamentos, como o GDPR, com ferramentas para gerenciar consentimento, retificação e exclusão de dados pessoais.
+Redução do acoplamento: O padrão Mediator ajuda a reduzir o acoplamento entre objetos, pois eles não precisam saber sobre a existência ou detalhes de outros objetos além do Mediator.
 
-4 - Escalabilidade e disponibilidade: O Auth0 é projetado para ser altamente escalável e disponível. Ele lida com a complexidade da segurança e da autenticação, permitindo que você se concentre no desenvolvimento de seus aplicativos principais. O Auth0 é executado em uma infraestrutura globalmente distribuída e altamente resiliente, garantindo alta disponibilidade e desempenho para seus aplicativos em qualquer lugar do mundo.
+Facilita a manutenção: A lógica de comunicação está centralizada no Mediator, o que torna mais fácil modificar ou estender as interações entre objetos sem afetar suas implementações individuais.
 
-5 - Segurança e conformidade robustas: O Auth0 leva a segurança a sério, adotando as melhores práticas e padrões do setor. Ele possui certificações de segurança, como ISO 27001, SOC 2 Type II, entre outras, e cumpre as regulamentações de privacidade de dados, como o GDPR e o CCPA. O Auth0 também oferece recursos avançados de segurança, como detecção de ameaças, análise de risco adaptativa e políticas de segurança personalizáveis.
+Melhora a legibilidade: O padrão Mediator pode tornar o código mais legível, pois separa as responsabilidades de comunicação dos objetos em uma classe dedicada (o Mediator).
 
-# Qualidade de Código - Escolha SonarCube
-O SonarQube é uma ferramenta popular para análise estática de código, oferecendo várias vantagens para melhorar a qualidade do código em poucas palavras:
+# SOLID
+Os benefícios de aplicar os princípios SOLID no design de software são diversos e impactam positivamente a qualidade, manutenção e extensibilidade do código. Aqui estão os principais benefícios:
 
-  1 - Detecção de problemas: O SonarQube identifica problemas de qualidade de código, como vulnerabilidades, bugs, duplicação de código, complexidade excessiva e violações de boas práticas de programação. Isso ajuda a identificar e corrigir problemas antes que eles se tornem um obstáculo para a manutenção e evolução do software.
+* Flexibilidade e extensibilidade: Ao seguir o Princípio do Aberto/Fechado (OCP), o código torna-se mais flexível para adicionar novas funcionalidades sem alterar o código existente. Isso facilita a extensão do sistema de forma modular, reduzindo o risco de introduzir bugs em partes já testadas e funcionais.
 
-  2 -  Padronização: O SonarQube permite a definição de regras personalizadas para garantir a aderência a padrões de codificação específicos. Isso promove a padronização do código em toda a equipe de desenvolvimento, facilitando a legibilidade, a manutenção e a colaboração.
+* Facilidade de manutenção: O Princípio da Responsabilidade Única (SRP) ajuda a garantir que cada classe tenha apenas uma única responsabilidade. Isso torna o código mais fácil de entender e alterar, pois as mudanças em uma funcionalidade específica podem ser feitas sem afetar outras partes do sistema.
 
-  3 - Melhoria contínua: Ao fornecer uma visão clara dos problemas de qualidade do código, o SonarQube incentiva uma mentalidade de melhoria contínua. Os desenvolvedores podem usar as informações fornecidas para aprender com os erros e aprimorar suas habilidades de programação ao longo do tempo.
+* Reutilização de código: A aplicação do Princípio da Segregação de Interface (ISP) permite a criação de interfaces mais específicas, resultando em classes mais coesas. Isso possibilita a reutilização dessas classes em diferentes contextos, já que as interfaces são mais focadas e menos dependentes de detalhes de implementação.
 
-  4 - Integração contínua: O SonarQube pode ser integrado facilmente em pipelines de integração contínua, permitindo que a análise de código seja executada automaticamente em cada nova alteração de código. Isso ajuda a identificar problemas precocemente e a evitar a propagação de problemas de qualidade em todo o código-base.
+* Maior coesão e menor acoplamento: Os princípios SOLID, em conjunto, promovem uma maior coesão dentro das classes e módulos do sistema. Com o Princípio da Inversão de Dependência (DIP), o acoplamento é reduzido, tornando o código mais independente e menos propenso a efeitos colaterais indesejados.
 
-  5 -  Métricas e relatórios: O SonarQube fornece métricas e relatórios detalhados sobre a qualidade do código, permitindo que as equipes monitorem o progresso ao longo do tempo. Isso ajuda a identificar áreas de foco, definir metas de qualidade e acompanhar o impacto das melhorias implementadas.
+* Facilita testes unitários: O design orientado a objetos consistente, com uma única responsabilidade bem definida para cada classe (SRP) e interfaces específicas (ISP), torna mais fácil criar testes unitários focados e robustos.
+
+* Facilita colaboração: Com código mais organizado e claro, os desenvolvedores podem colaborar mais facilmente. Além disso, a adoção de padrões de design consistentes torna o trabalho em equipe mais fluido, pois todos seguem as mesmas diretrizes.
+
+* Redução de problemas de manutenção: Ao aplicar o Princípio da Substituição de Liskov (LSP), evitam-se problemas de incompatibilidade e comportamentos inesperados ao substituir classes derivadas. Isso contribui para a estabilidade do sistema.
+
+* Melhoria na escalabilidade: Com um código mais estruturado e extensível, o sistema está melhor preparado para se adaptar a novas demandas e crescer ao longo do tempo.
 
     
