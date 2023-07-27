@@ -164,6 +164,7 @@ namespace B3Digitas.Architecture.ServiceCrawler
 
         private static async Task SendToApi(OrderBookResponse x)
         {
+            try{
             var orderBook = new CreateOrderBookRequest();
             orderBook.Symbol = x.Symbol;
             orderBook.Microtimestamp = x.Data.Microtimestamp;
@@ -192,6 +193,7 @@ namespace B3Digitas.Architecture.ServiceCrawler
 
             string result = response.Content.ReadAsStringAsync().Result;
             Console.WriteLine(result);
+            }catch{}
         }
 
         private static OrderBookSideRequest MapEnumSide(OrderBookSide side)
