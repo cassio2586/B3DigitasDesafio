@@ -1,0 +1,27 @@
+﻿@model List<B3Digitas.Cripto.Web.Endpoints.CashEndpoints.GetAllOrderBookBySymbolResponse>
+@{
+    ViewData["Title"] = "CriptoProject";
+}
+    <div>
+          BTCAvgPrice = @this.Model[0].AvgPrice  </br> 
+          BTCLastPriceOnFiveSeconds = @this.Model[0].AvgPriceLastFiveSeconds </br>
+          BTCAvgQtd = @this.Model[0].AvgQtd </br>
+          BTCMaxPrice = @this.Model[0].MaxPrice </br>
+          BTCMinPrice = @this.Model[0].MinPrice </br>
+    </div>
+</br>
+
+    <div>
+          ETHAvgPrice = @this.Model[1].AvgPrice  </br> 
+          ETHLastPriceOnFiveSeconds = @this.Model[1].AvgPriceLastFiveSeconds </br>
+          ETHAvgQtd = @this.Model[1].AvgQtd </br>
+          ETHMaxPrice = @this.Model[1].MaxPrice </br>
+          ETHMinPrice = @this.Model[1].MinPrice </br>
+    </div>
+</br>
+    <div class="col-md-4">
+        <ul>
+            <li><a href="/swagger">API Documentation (Swagger)</a></li>
+        </ul>
+    </div>
+   

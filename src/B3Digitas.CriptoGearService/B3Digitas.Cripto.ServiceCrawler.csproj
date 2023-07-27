@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>B3Digitas.Architecture.ServiceCrawler</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bitstamp.Client.Websocket" />
+    <PackageReference Include="Serilog" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="Serilog.Sinks.File" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\B3Digitas.Cripto.Infrastructure\B3Digitas.Cripto.Infrastructure.csproj" />
+    <ProjectReference Include="..\B3Digitas.Cripto.Web\B3Digitas.Cripto.Web.csproj" />
+  </ItemGroup>
+
+</Project>

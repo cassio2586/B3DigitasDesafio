@@ -7,7 +7,7 @@ using System.Runtime.Loader;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using B3Digitas.Architecture.Web.Endpoints.CashEndpoints;
+using B3Digitas.Cripto.Web.Endpoints.CashEndpoints;
 using Bitstamp.Client.Websocket;
 using Bitstamp.Client.Websocket.Channels;
 using Bitstamp.Client.Websocket.Client;
@@ -16,7 +16,7 @@ using Bitstamp.Client.Websocket.Requests;
 using Bitstamp.Client.Websocket.Responses.Books;
 using OrderBookSide = Bitstamp.Client.Websocket.Responses.Books.OrderBookSide;
 
-namespace B3Digitas.Architecture.ServiceCrawler
+namespace B3Digitas.Cripto.ServiceCrawler
 {
     internal class Program
     {

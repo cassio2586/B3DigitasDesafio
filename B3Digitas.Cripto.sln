@@ -13,19 +13,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cripto", "Cripto", "{1BAF09BC-5E95-44A5-BB02-D3AC71AD06ED}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CriptoMicroService", "CriptoMicroService", "{1BAF09BC-5E95-44A5-BB02-D3AC71AD06ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{67B62497-5822-45CD-8233-28529EBA552D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3Digitas.Architecture.Core", "src\B3Digitas.Architecture.Core\B3Digitas.Architecture.Core.csproj", "{6745C8A6-FC37-4B09-B7DC-ACA384F2CE2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3Digitas.Cripto.Core", "src\B3Digitas.Cripto.Core\B3Digitas.Cripto.Core.csproj", "{6745C8A6-FC37-4B09-B7DC-ACA384F2CE2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3Digitas.Architecture.SharedKernel", "src\B3Digitas.Architecture.SharedKernel\B3Digitas.Architecture.SharedKernel.csproj", "{83924EE8-AC24-4A1E-A89B-D4E13B940783}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3Digitas.Cripto.SharedKernel", "src\B3Digitas.Cripto.SharedKernel\B3Digitas.Cripto.SharedKernel.csproj", "{83924EE8-AC24-4A1E-A89B-D4E13B940783}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3Digitas.Architecture.Infrastructure", "src\B3Digitas.Architecture.Infrastructure\B3Digitas.Architecture.Infrastructure.csproj", "{E9EC0155-4CED-4193-B099-6ECF0C5F0FC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3Digitas.Cripto.Infrastructure", "src\B3Digitas.Cripto.Infrastructure\B3Digitas.Cripto.Infrastructure.csproj", "{E9EC0155-4CED-4193-B099-6ECF0C5F0FC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3Digitas.Architecture.Web", "src\B3Digitas.Architecture.Web\B3Digitas.Architecture.Web.csproj", "{FF73BA60-F2C1-41A5-B5E4-96F928D3A459}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3Digitas.Cripto.Web", "src\B3Digitas.Cripto.Web\B3Digitas.Cripto.Web.csproj", "{FF73BA60-F2C1-41A5-B5E4-96F928D3A459}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3Digitas.Architecture.ServiceCrawler", "src\B3Digitas.CriptoGearService\B3Digitas.Architecture.ServiceCrawler.csproj", "{7BD31EDD-74F5-439B-A6BD-F54A430D5331}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3Digitas.Cripto.ServiceCrawler", "src\B3Digitas.CriptoGearService\B3Digitas.Cripto.ServiceCrawler.csproj", "{7BD31EDD-74F5-439B-A6BD-F54A430D5331}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
