@@ -26,25 +26,34 @@ public class OrderBookAddHandler : INotificationHandler<OrderBookAddEvent>
 
     var avgHistOrderBook = new List<decimal>();
 
-    var remove = histOrderBook.Where(a=>a.Timestamp < DateTime.Now.AddSeconds(-5)).ToList();
+    RemoveOlderOrderBooks(histOrderBook);
+    GetAvgLastFiveSeconds(domainEvent, histOrderBook, avgHistOrderBook);
+    
+    _cache.Set($"{domainEvent.OrderBook.Symbol}OrderBook", domainEvent.OrderBook);
+    _cache.Set($"{domainEvent.OrderBook.Symbol}HistOrderBook", histOrderBook);
+    return Task.CompletedTask;
+  }
+
+  private static void GetAvgLastFiveSeconds(OrderBookAddEvent domainEvent, List<OrderBook> histOrderBook, List<decimal> avgHistOrderBook)
+  {
+    for (int a = 0; a <= histOrderBook.Count() - 1; a++)
+    {
+      avgHistOrderBook.Add((decimal)histOrderBook[a].BookLevels.Average(a => a.Price));
+    }
+
+    if (avgHistOrderBook.Count > 0)
+      domainEvent.OrderBook.FiveSecondAvgPrice = avgHistOrderBook.Average();
+  }
+
+  private static void RemoveOlderOrderBooks(List<OrderBook> histOrderBook)
+  {
+    var remove = histOrderBook.Where(a => a.Timestamp < DateTime.Now.AddSeconds(-5)).ToList();
     if (remove.Count() > 0)
     {
-      for(int a = 0; a<=remove.Count()-1; a++)
+      for (int a = 0; a <= remove.Count() - 1; a++)
       {
         histOrderBook.Remove(remove[a]);
       }
     }
-      
-    for(int a= 0;a<=histOrderBook.Count()-1;a++)
-    {
-      avgHistOrderBook.Add((decimal)histOrderBook[a].BookLevels.Average(a=>a.Price));
-    }
-    if(avgHistOrderBook.Count > 0)
-      domainEvent.OrderBook.FiveSecondAvgPrice = avgHistOrderBook.Average();
-    
-    //_cache.Set($"{domainEvent.OrderBook.Symbol}FiveSecondAvgPrice", avgHistOrderBook.Average());
-    _cache.Set($"{domainEvent.OrderBook.Symbol}OrderBook", domainEvent.OrderBook);
-    _cache.Set($"{domainEvent.OrderBook.Symbol}HistOrderBook", histOrderBook);
-    return Task.CompletedTask;
   }
 }

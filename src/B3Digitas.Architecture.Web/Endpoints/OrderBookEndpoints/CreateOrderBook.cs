@@ -6,13 +6,13 @@ using FastEndpoints;
 
 namespace B3Digitas.Architecture.Web.Endpoints.CashEndpoints;
 
-public class Create : Endpoint<CreateOrderBookRequest>
+public class CreateOrderBook : Endpoint<CreateOrderBookRequest>
 {
     private readonly ICreateBookValuesService _createBookValuesService;
-    private readonly ILogger<Create> _logger;
+    private readonly ILogger<CreateOrderBook> _logger;
     private readonly global::AutoMapper.IMapper _mapper;
 
-    public Create(ICreateBookValuesService service, ILogger<Create> logger, global::AutoMapper.IMapper mapper)
+    public CreateOrderBook(ICreateBookValuesService service, ILogger<CreateOrderBook> logger, global::AutoMapper.IMapper mapper)
     {
         _createBookValuesService = service;
         _logger = logger;
@@ -33,17 +33,6 @@ public class Create : Endpoint<CreateOrderBookRequest>
     {
         try
         {
-            /*
-            if (request. is null)
-                throw new InvalidDataException();
-            if (request.Amount < 0)
-                throw new NegativeAmountException();
-            if(!Enum.IsDefined(typeof(TransactionTypeEnum), request.TransactionType))
-                throw new InvalidDataException();
-            */
-
-            var x = _mapper.Map<OrderBook>(request);
-
             var result = await _createBookValuesService.Add(_mapper.Map<OrderBook>(request));
 
             if (result.Status == ResultStatus.NotFound)
@@ -64,6 +53,5 @@ public class Create : Endpoint<CreateOrderBookRequest>
             _logger.LogCritical("Invalid amount negative argument");
             await SendErrorsAsync(400, cancellationToken);
         }
-
     }
 }

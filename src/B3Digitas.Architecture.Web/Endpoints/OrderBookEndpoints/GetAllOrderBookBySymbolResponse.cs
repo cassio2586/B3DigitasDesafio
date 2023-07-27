@@ -1,5 +1,4 @@
 using B3Digitas.Architecture.Core.OrderBookAggregate;
-using B3Digitas.Architecture.Core.OrderBookAggregate.Enums;
 
 namespace B3Digitas.Architecture.Web.Endpoints.CashEndpoints;
 

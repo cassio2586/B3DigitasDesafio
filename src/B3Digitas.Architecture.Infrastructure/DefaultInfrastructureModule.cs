@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using Autofac;
 using B3Digitas.Architecture.Infrastructure.Data;
-using B3Digitas.Architecture.Core.Interfaces;
 using B3Digitas.Architecture.Core.OrderBookAggregate;
 using B3Digitas.Architecture.SharedKernel;
 using B3Digitas.Architecture.SharedKernel.Interfaces;
@@ -88,13 +87,9 @@ public class DefaultInfrastructureModule : Module
 
   private void RegisterDevelopmentOnlyDependencies(ContainerBuilder builder)
   {
-    builder.RegisterType<FakeEmailSender>().As<IEmailSender>()
-      .InstancePerLifetimeScope();
   }
 
   private void RegisterProductionOnlyDependencies(ContainerBuilder builder)
   {
-    builder.RegisterType<SmtpEmailSender>().As<IEmailSender>()
-      .InstancePerLifetimeScope();
   }
 }

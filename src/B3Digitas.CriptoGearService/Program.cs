@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Reflection;
 using System.Runtime.Loader;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using B3Digitas.Architecture.Core.Interfaces;
-using B3Digitas.Architecture.Core.OrderBookAggregate;
-using B3Digitas.Architecture.Core.Services;
-using B3Digitas.Architecture.Infrastructure.Data;
 using B3Digitas.Architecture.Web.Endpoints.CashEndpoints;
 using Bitstamp.Client.Websocket;
 using Bitstamp.Client.Websocket.Channels;
@@ -19,10 +14,6 @@ using Bitstamp.Client.Websocket.Client;
 using Bitstamp.Client.Websocket.Communicator;
 using Bitstamp.Client.Websocket.Requests;
 using Bitstamp.Client.Websocket.Responses.Books;
-using Microsoft.AspNetCore.Identity;
-using Serilog;
-using Serilog.Events;
-using BookLevel = B3Digitas.Architecture.Core.OrderBookAggregate.BookLevel;
 using OrderBookSide = Bitstamp.Client.Websocket.Responses.Books.OrderBookSide;
 
 namespace B3Digitas.Architecture.ServiceCrawler
@@ -39,11 +30,6 @@ namespace B3Digitas.Architecture.ServiceCrawler
             AssemblyLoadContext.Default.Unloading += DefaultOnUnloading;
             Console.CancelKeyPress += ConsoleOnCancelKeyPress;
 
-            Console.WriteLine("|=======================|");
-            Console.WriteLine("|    BITSTAMP CLIENT    |");
-            Console.WriteLine("|=======================|");
-            Console.WriteLine();
-            
             var url = BitstampValues.ApiWebsocketUrl;
             using (var communicator = new BitstampWebsocketCommunicator(url))
             {
@@ -70,20 +56,8 @@ namespace B3Digitas.Architecture.ServiceCrawler
         private static Task SendSubscriptionRequests(BitstampWebsocketClient client)
         {
             client.Send(new SubscribeRequest("btcusd", Channel.OrderBook));
-
-
             client.Send(new SubscribeRequest("ethusd", Channel.OrderBook));
             return Task.CompletedTask;
-            //client.Send(new SubscribeRequest("btceur", Channel.OrderBook));
-
-            //client.Send(new SubscribeRequest("btcusd", Channel.OrderBookDetail));
-            //client.Send(new SubscribeRequest("btceur", Channel.OrderBookDetail));
-
-            //client.Send(new SubscribeRequest("btcusd", Channel.OrderBookDiff));
-            //client.Send(new SubscribeRequest("btceur", Channel.OrderBookDiff));
-
-            //client.Send(new SubscribeRequest("btcusd", Channel.Ticker));
-            //client.Send(new SubscribeRequest("btceur", Channel.Ticker));
         }
 
         private static void SubscribeToStreams(BitstampWebsocketClient client)
@@ -105,54 +79,18 @@ namespace B3Digitas.Architecture.ServiceCrawler
             client.Streams.OrderBookStream.Subscribe(async x =>
             {
                 await SendToApi(x);
-                Console.WriteLine($"Order book L2 [{x.Symbol}]");
-                Console.WriteLine($"    {x.Data?.Asks.FirstOrDefault()?.Price} " +
-                                  $"{x.Data?.Asks.FirstOrDefault()?.Amount ?? 0} " +
-                                  $"{x.Data?.Asks.FirstOrDefault()?.Side} " +
-                                  $"({x.Data?.Asks?.Length})");
-                Console.WriteLine($"    {x.Data?.Bids.FirstOrDefault()?.Price} " +
-                                  $"{x.Data?.Bids.FirstOrDefault()?.Amount ?? 0} " +
-                                  $"{x.Data?.Bids.FirstOrDefault()?.Side} " +
-                                  $"({x.Data?.Bids?.Length})");
-
-                
             });
 
             client.Streams.OrdersStream.Subscribe(x =>
             {
-                //Log.Information($"{x.Data} {x.Data.Asks[0]} {x.Data.EventBids[0]}");
-                //Log.Information($"{x.Symbol} {x.Data.Channel} {x.Data.Amount}");
             });
 
             client.Streams.OrderBookDetailStream.Subscribe(x =>
             {
-                
-                //await SendToApi(x);
-
-                Console.WriteLine($"Order book L3 [{x.Symbol}]");
-                Console.WriteLine($"    {x.Data?.Asks.FirstOrDefault()?.Price} " +
-                                  $"{x.Data?.Asks.FirstOrDefault()?.Amount ?? 0} " +
-                                  $"{x.Data?.Asks.FirstOrDefault()?.Side} " +
-                                  $"({x.Data?.Asks?.Length}) " +
-                                  $"id: {x.Data?.Asks?.FirstOrDefault()?.OrderId}");
-                Console.WriteLine($"    {x.Data?.Bids.FirstOrDefault()?.Price} " +
-                                  $"{x.Data?.Bids.FirstOrDefault()?.Amount ?? 0} " +
-                                  $"{x.Data?.Bids.FirstOrDefault()?.Side} " +
-                                  $"({x.Data?.Bids?.Length}) " +
-                                  $"id: {x.Data?.Bids?.FirstOrDefault()?.OrderId}");
             });
 
             client.Streams.OrderBookDiffStream.Subscribe(x =>
             {
-                Console.WriteLine($"Order book L2 diffs [{x.Symbol}]");
-                Console.WriteLine($"    updates {x.Data?.Asks.Count(y => y.Amount > 0)} " +
-                                  $"deletes {x.Data?.Asks.Count(y => y.Amount <= 0)}  " +
-                                  $"{x.Data?.Asks.FirstOrDefault()?.Side} " +
-                                  $"({x.Data?.Asks?.Length}) ");
-                Console.WriteLine($"    updates {x.Data?.Bids.Count(y => y.Amount > 0)} " +
-                                  $"deletes {x.Data?.Bids.Count(y => y.Amount <= 0)}  " +
-                                  $"{x.Data?.Bids.FirstOrDefault()?.Side} " +
-                                  $"({x.Data?.Bids?.Length}) ");
             });
 
             
@@ -168,34 +106,36 @@ namespace B3Digitas.Architecture.ServiceCrawler
         private static async Task SendToApi(OrderBookResponse x)
         {
             try{
-            var orderBook = new CreateOrderBookRequest();
-            orderBook.Symbol = x.Symbol;
-            orderBook.Microtimestamp = x.Data.Microtimestamp;
-            orderBook.Timestamp = x.Data.Timestamp;
-            orderBook.BookLevels = new List<BookLevelRequest>();
-            
-            foreach (var ask in x.Data.Asks)
-            {
-                orderBook.BookLevels.Add(new BookLevelRequest()
-                    { BookType = 1, Amount = ask.Amount, OrderId = ask.OrderId, Price = ask.Price, SideRequest = MapEnumSide(ask.Side)  });
-            }
+                var orderBook = new CreateOrderBookRequest
+                {
+                    Symbol = x.Symbol,
+                    Microtimestamp = x.Data.Microtimestamp,
+                    Timestamp = x.Data.Timestamp,
+                    BookLevels = new List<BookLevelRequest>()
+                };
 
-            foreach (var bid in x.Data.Bids)
-            {
-                orderBook.BookLevels.Add(new BookLevelRequest()
-                    { BookType = 2, Amount = bid.Amount, OrderId = bid.OrderId, Price = bid.Price, SideRequest = MapEnumSide(bid.Side) });
-            }
+                foreach (var ask in x.Data.Asks)
+                {
+                    orderBook.BookLevels.Add(new BookLevelRequest()
+                        { BookType = 1, Amount = ask.Amount, OrderId = ask.OrderId, Price = ask.Price, SideRequest = MapEnumSide(ask.Side)  });
+                }
 
-            var json = Newtonsoft.Json.JsonConvert.SerializeObject(orderBook);
-            var data = new System.Net.Http.StringContent(json, Encoding.UTF8, "application/json");
+                foreach (var bid in x.Data.Bids)
+                {
+                    orderBook.BookLevels.Add(new BookLevelRequest()
+                        { BookType = 2, Amount = bid.Amount, OrderId = bid.OrderId, Price = bid.Price, SideRequest = MapEnumSide(bid.Side) });
+                }
 
-            var url = "http://localhost:57679/OrderBook";
-            using var client = new HttpClient();
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(orderBook);
+                var data = new System.Net.Http.StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync(url, data);
+                var url = "http://localhost:57679/OrderBook";
+                using var client = new HttpClient();
 
-            string result = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(result);
+                var response = await client.PostAsync(url, data);
+
+                string result = response.Content.ReadAsStringAsync().Result;
+                Console.WriteLine(result);
             }catch{}
         }
 

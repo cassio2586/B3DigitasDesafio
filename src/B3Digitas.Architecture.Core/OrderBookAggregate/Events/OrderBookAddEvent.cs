@@ -1,6 +1,4 @@
-﻿using B3Digitas.Architecture.Core.OrderBookAggregate.Enums;
-using B3Digitas.Architecture.Core.OrderBookAggregate;
-using B3Digitas.Architecture.SharedKernel;
+﻿using B3Digitas.Architecture.SharedKernel;
 
 namespace B3Digitas.Architecture.Core.OrderBookAggregate.Events;
 

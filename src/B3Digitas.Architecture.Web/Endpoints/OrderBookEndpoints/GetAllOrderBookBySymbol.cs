@@ -1,9 +1,7 @@
-﻿using Ardalis.ApiEndpoints;
-using B3Digitas.Architecture.Web.Endpoints.CashEndpoints;
+﻿using B3Digitas.Architecture.Web.Endpoints.CashEndpoints;
 using B3Digitas.Architecture.Core.Interfaces;
 using B3Digitas.Architecture.SharedKernel.CustomExceptions;
 using FastEndpoints;
-using Microsoft.AspNetCore.Authorization;
 
 namespace B3Digitas.Architecture.Web.CashEndpoints;
 

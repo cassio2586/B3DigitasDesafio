@@ -31,27 +31,11 @@ public class CreateBookValuesService : ICreateBookValuesService
 
     if(orderBook.BookLevels is null)
       throw new ArgumentNullException();
-
-    //var orderBookAggregate = orderBook;
-    //var orderBookAdded = await _repository.AddAsync(orderBookAggregate);
-    //await _repository.SaveChangesAsync();
+    
     var domainEvent = new OrderBookAddEvent(orderBook);
     await _mediator.Publish(domainEvent);
     _logger.LogInformation("Transaction success saved.");
 
     return Result.Success();
-  }
-
-  public void Purge(string? symbol)
-  {
-    throw new NotImplementedException();
-  }
-
-  public void Purge()
-  {
-    
-    var bookOrders = _repository.ListAsync().Result.Where(a => a.Timestamp < DateTime.Now.AddSeconds(10));
-    _repository.DeleteRangeAsync(bookOrders);
-    _repository.SaveChangesAsync();
   }
 }

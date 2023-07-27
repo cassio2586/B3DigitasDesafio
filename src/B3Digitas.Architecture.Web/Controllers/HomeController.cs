@@ -16,14 +16,14 @@ public class HomeController : Controller
         {
           var listResponse = new List<GetAllOrderBookBySymbolResponse>();
 
-          var url = "https://cassio2586-humble-meme-xr4rj5g4p5whp599-57679.preview.app.github.dev/GetAllOrderBookBySymbol?Symbol=btcusd";
+          var url = "http://localhost:57679/GetAllOrderBookBySymbol?Symbol=btcusd";
             
             var btc = await client.GetFromJsonAsync<GetAllOrderBookBySymbolResponse>(url);
             if(btc!=null)
             listResponse.Add(btc);
 
 
-            url = "https://cassio2586-humble-meme-xr4rj5g4p5whp599-57679.preview.app.github.dev/GetAllOrderBookBySymbol?Symbol=ethusd";
+            url = "http://localhost:57679/GetAllOrderBookBySymbol?Symbol=ethusd";
             var eth = await client.GetFromJsonAsync<GetAllOrderBookBySymbolResponse>(url);
             if(eth!=null)
             listResponse.Add(eth);         

@@ -1,8 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-using B3Digitas.Architecture.Core.OrderBookAggregate.Enums;
-
 namespace B3Digitas.Architecture.Web.Endpoints.CashEndpoints;
-
 public class CreateOrderBookRequest
 {
     public const string Route = "/OrderBook";
@@ -25,7 +21,6 @@ public class BookLevelRequest
     public double Price { get; set; }
     public double Amount { get; set; }
     public long OrderId { get; set; }
-    
     public int BookType { get; set; }
 }
 

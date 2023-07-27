@@ -7,9 +7,7 @@ public class CreateOrderRequest
 {
     public const string Route = "/Order";
     public string? Symbol { get; set; }
-
     public string? Side{get;set;}
-    
     public decimal Amount{get;set;}
 
 }
