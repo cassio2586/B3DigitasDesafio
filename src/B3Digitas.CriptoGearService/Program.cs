@@ -70,6 +70,9 @@ namespace B3Digitas.Architecture.ServiceCrawler
         private static Task SendSubscriptionRequests(BitstampWebsocketClient client)
         {
             client.Send(new SubscribeRequest("btcusd", Channel.OrderBook));
+
+
+            client.Send(new SubscribeRequest("ethusd", Channel.OrderBook));
             return Task.CompletedTask;
             //client.Send(new SubscribeRequest("btceur", Channel.OrderBook));
 
