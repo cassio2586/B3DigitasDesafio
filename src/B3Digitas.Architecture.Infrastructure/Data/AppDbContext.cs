@@ -19,6 +19,7 @@ public class AppDbContext : DbContext
   
   public DbSet<OrderBook> OrderBook => Set<OrderBook>();
   public DbSet<BookLevel> BookLevel => Set<BookLevel>();
+  public DbSet<Order> Order => Set<Order>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
